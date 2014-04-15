@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+
+    <style>
+    body {
+    background-image: url("{% static "images/Green-Abstract-Background.jpg" %}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+    .navbar_custom{border-width:1px; border-style:solid;box-shadow: 10px 8px 20px 3px rgba(0,0,0,0.71);}
+    </style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>JonTomBraam.com</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/sticky-footer.css" %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Shadows Into Light">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    {% block extrastyle %}{% endblock %}
+    
+
+    <!-- Bootstrap theme -->
+    <link href="{% static "css/bootstrap-theme.min.css" %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- link href="theme.css" rel="stylesheet" -->
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document" class="cbp-spmenu-push">
+  <div id="wrap">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-custom navbar-fixed-top navbar_custom" role="navigation" style="font-family:'Shadows Into Light', serif; font-size: 20px">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}" style="font-size:30px;">JonTomBraam.com</a>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li {% block nav_home %}class="inactive"{% endblock %} ><a href="{% url 'home' %}">Home</a></li>
+            <li {% block nav_aboutme %}class="inactive"{% endblock %}><a href="{% url 'aboutme' %}">AboutMe</a></li>
+            <li {% block nav_blog %}class="inactive"{% endblock %}><a href="{% url 'blog' %}">Blog</a></li>
+            <li {% block nav_projects %}class="inactive"{% endblock %}><a href="{% url 'projects' %}">Projects</a></li>
+          </ul>
+      </div>
+    </div>
+    <div>{% block side_bar%}{% endblock %}</div>
+    <div style="padding-top: 40px;">{% block body_context %}{% endblock %}</div>
+</div>
+</div>
+<div id="footer">
+  <p class="text-muted"> JonTomBraam.com Copyright 2014</p>      
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}" rel="stylesheet"></script>
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    {% block extrascript %}{% endblock %}
+  </body>
+
+</html>

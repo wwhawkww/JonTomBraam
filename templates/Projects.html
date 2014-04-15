@@ -1,0 +1,79 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static "css/menu_slide.css" %}">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Special Elite">
+<link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">
+<style>
+        .prettyprint ol.linenums > li { list-style-type: decimal; }
+        .sidebar_custom{border-width:1px; border-style:solid;box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);}
+    </style>
+{% endblock %}
+
+{% block extrascript %}
+<script type="text/javascript" src="{% static "js/menu_slide.js" %}"></script>
+<script type="text/javascript" src="{% static "js/classie.js" %}"></script>
+<script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js?skin=sunburst"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></scirpt>
+{% endblock %}
+
+{% block nav_projects %} class="active" {% endblock %}
+
+{% block side_bar %}
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left sidebar_custom" id="cbp-spmenu-s1">
+    <h3> - Current Projects - </h3>
+    <a href="#">Alfred <i class="fa fa-desktop"></i></a>
+    <a href="#"> Applescript <i class="fa fa-apple"></i></a>
+    <a href="#"> Python <i class="fa fa-code-fork"></i></a>
+    <a href="#">  Python Web Development <i class="fa fa-cloud"></i></a>
+    <a href="#"> Web Applications <i class="fa fa-rocket"></i></a>
+    <h3> - Hobbyist Projects - </h3>
+    <a href="#"> Home Automation <i class="fa fa-gears"></i></a>
+    <a href="#">Wood Working <i class="fa fa-gavel"></i></a>
+    <a href="#">Home Improvement <i class="fa fa-building-o"></i></a>
+</nav>
+
+<div class="container">
+    <div class="main">
+        <section>
+            <h2>Slide Menus</h2>
+            <!-- Class "cbp-spmenu-open" gets applied to menu -->
+            <!--<button id="showLeft">Show/Hide Left Slide Menu</button -->
+            <div class="btn-group">
+                <a class="btn btn-default" href="#" id="showLeft"><i class="fa fa-align-left"></i>Projects</a>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_context %}
+<body onload="prettyPrint()">
+<div class = "custom-well">
+  <div class="well">
+    <h1> Header </h1>
+
+    <pre class="prettyprint linenums">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;title&gt;Demo | Prettify.JS&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h1&gt;Hello, World!&lt;/h1&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+
+    <pre class="prettyprint linenums">
+        ## python example
+        #!/usr/bin/python2.7
+        import os
+            class YourClass():
+                __init__(self):
+    </pre>
+
+  </div>
+ </div>
+{% endblock %}

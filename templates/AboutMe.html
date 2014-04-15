@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% block nav_aboutme %} class="active" {% endblock %}
+{% load staticfiles %}
+
+{% block extrascript %}
+{% endblock %}
+
+{% block body_context %}
+<div class="custom-well" style="margin-top: 20px; position: relative;">
+<img style="border-radius: 20px; margin: 20px;" src="{% static "images/Jon_Headshot.jpg" %}">
+<div id="col2">
+	<h1> Jon Braam
+		<a href="http://www.linkedin.com/pub/jon-braam/3a/439/b44" style="float: right">
+      		<img src="http://s.c.lnkd.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Jon Braam's profile on LinkedIn"></a>
+    </h1>
+	<p>I am a airframe structures analysis engineer at the Boeing company.  My work involves analysis of metallic and composite structure for all loading scenarios of commercial aircraft.  My role at the company involves a significant amount of computer programming in order to accuratly and efficiently analyze structure.</p>
+	<p>In my spare time I enjoy writing software for home computing, home automation and web development.  I prefer to use the python programming language due to it's versatility and scalability.</p>
+	
+	<p><a href="{% url 'resume' %}" class="btn btn-primary btn-lg" role="button" style="position: absolute; right: 10px;
+bottom:10px;">See my resume &raquo;</a></p>  
+</div>
+</div>
+
+{% endblock %}
