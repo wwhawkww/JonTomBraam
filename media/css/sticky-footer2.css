@@ -1,0 +1,88 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -20px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  text-align:center;
+  height: 20px;
+  background-color: #000000;
+}
+
+.custom-container > .text-muted >.p  {
+  background-color: none;
+}
+
+.navbar-custom {
+    background-color:#10A82E;
+    color:#ffffff;
+    border-radius:20;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a:focus {
+    background: #258ecd;
+    text-decoration:none;
+}
+
+.navbar-custom .navbar-nav > .inactive > a:hover {
+    background: #13A5DF;
+    text-decoration:none;
+}
+
+
+.navbar-custom .navbar-nav > .active > a:hover {
+    background: #258ecd;
+    text-decoration:none;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+
+.custom-jumbotron {
+  -webkit-box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  -moz-box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  font-family: "Nunito"
+}
+
+.custom-well {
+  border-radius: 8px;
+  margin-right: 45px;
+  margin-left: 45px;
+  background-color: #FAFAFA;
+  background: #FAFAFA;
+  -webkit-box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  -moz-box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  box-shadow: 21px 18px 30px 4px rgba(0,0,0,0.71);
+  font-family: "Nunito"
+}
+
+#col1 {
+    float:left;
+    border-radius: 20px;
+}
+
+#col2 {
+    padding-right: 25px;
+}
+
+

@@ -1,11 +1,16 @@
 """
 Django settings for JonTomBraam project.
-**All commands added due to Heroku deployment
-  are searchablewith the string "-Heroku-" **
+## Open shift credentials
+  URL:        http://jontombraam-jontombraam.rhcloud.com/
+  SSH to:     534d7c0550044603a3000497@jontombraam-jontombraam.rhcloud.com
+  Git remote: ssh://534d7c0550044603a3000497@jontombraam-jontombraam.rhcloud.com/~/git/jontombraam.git/
+  Cloned to:  /Users/wwhawkww/jontombraam
+  Gears:          Located with python-2.7
+  Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+  Database Name:  jontombraam
+  Password:       QwLdEY7-Mxtm
+  Username:       adminIj3qCSt
 """
-# -Heroku- Parse database configuration from $DATABASE_URL
-import dj_database_url
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -35,8 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
-    'boto',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,32 +59,15 @@ WSGI_APPLICATION = 'JonTomBraam.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         "ENGINE": 'django.db.backends.mysql',
-         #'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-     }
- }
-
-# DATABASES = {
-#   "default": {
-#       "ENGINE": 'django.db.backends.mysql',
-#       "NAME": "JonTomBraamdb",
-#       "USER": "root",
-#       "PASSWORD": "GXzO87MS",
-#       "HOST": "",
-#       "PORT": "",
-#   }
-# }
-
-# -Heroku- Implimentation of database control
-DATABASES['default'] =  dj_database_url.config()
-
-# -Heroku- Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# -Heroku- Allow all host headers
-ALLOWED_HOSTS = ['*']
+  "default": {
+      "ENGINE": 'django.db.backends.mysql',
+      "NAME": "JonTomBraamdb",
+      "USER": "root",
+      "PASSWORD": "GXzO87MS",
+      "HOST": "",
+      "PORT": "",
+  }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -100,14 +86,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'media') + '/',)
-# -Heroku- new location for static root
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = os.path.join(BASE_DIR,'media') + '/'
-
-if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = S3_URL
